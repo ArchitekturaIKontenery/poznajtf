@@ -3,6 +3,6 @@ resource "random_string" "planowanie_wdrozenia" {
 }
 
 resource "local_file" "planowanie_wdrozenia" {
-  filename = random_string.planowanie_wdrozenia.result
+  filename = "${random_string.planowanie_wdrozenia.result}.txt"
   content = "Ćwiczenie 1.3 - Planowanie wdrożenia"
 }
