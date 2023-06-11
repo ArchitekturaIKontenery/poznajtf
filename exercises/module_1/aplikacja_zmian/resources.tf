@@ -5,5 +5,5 @@ resource "random_string" "aplikacja_wdrozenia" {
 
 resource "local_file" "aplikacja_wdrozenia" {
   filename = "${random_string.aplikacja_wdrozenia.result}.txt"
-  content  = "Ćwiczenie 1.3 - Planowanie wdrożenia!"
+  content  = "Ćwiczenie 1.4 - Aplikacja wdrożenia!"
 }

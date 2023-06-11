@@ -15,7 +15,7 @@ Terraform will perform the following actions:
 
   # local_file.aplikacja_wdrozenia will be created
   + resource "local_file" "aplikacja_wdrozenia" {
-      + content              = "Ćwiczenie 1.3 - Planowanie wdrożenia!"
+      + content              = "Ćwiczenie 1.4 - Aplikacja wdrożenia!"
       + content_base64sha256 = (known after apply)
       + content_base64sha512 = (known after apply)
       + content_md5          = (known after apply)
@@ -49,6 +49,7 @@ Plan: 2 to add, 0 to change, 0 to destroy
 ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
 
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+```
 Jak widzisz, Terraform informuje nas o 2 zasobach, które zostaną utworzone jeśli zaaplikujemy zmiany. Po upewnieniu się, że prezentowana konfiguracja jest poprawna z naszego punktu widzenia, przejdźmy do kolejnego kroku.
 
 ### Aplikacja zmian
@@ -86,7 +87,7 @@ Terraform will perform the following actions:
 
   # local_file.aplikacja_wdrozenia will be created
   + resource "local_file" "aplikacja_wdrozenia" {
-      + content              = "Ćwiczenie 1.3 - Planowanie wdrożenia!"
+      + content              = "Ćwiczenie 1.4 - Aplikacja wdrożenia!"
       + content_base64sha256 = (known after apply)
       + content_base64sha512 = (known after apply)
       + content_md5          = (known after apply)
