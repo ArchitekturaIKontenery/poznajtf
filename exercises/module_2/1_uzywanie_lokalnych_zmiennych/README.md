@@ -5,7 +5,7 @@ W ramach tego ćwiczenia zdefiniujemy i wykorzystamy lokalne zmienne.
 ## Wykonanie ćwiczenia
 Zanim zaczniemy pracować ze zmiennymi, zdefiniujmy pojedynczy zasób `local_file`:
 ```
-resource "local_file" "aplikacja_wdrozenia" {
+resource "local_file" "uzywanie_lokalnych_zmiennych" {
   filename = "file.txt"
   content  = "Ćwiczenie 2.1 - Używanie lokalnych zmiennych!"
 }
@@ -23,14 +23,14 @@ locals {
 ### Wykorzystanie zmiennej lokalnej
 Zdefniowaną zmienną możemy teraz wykorzystać w ramach definicji zasobu z plikiem lokalnym. Aby tego dokonać wykorzystamy referencję do zmiennej poprzez prefix `local.`:
 ```
-resource "local_file" "aplikacja_wdrozenia" {
+resource "local_file" "uzywanie_lokalnych_zmiennych" {
   filename = local.filename
   content  = "Ćwiczenie 2.1 - Używanie lokalnych zmiennych!"
 }
 ```
 Na sam koniec zweryfikujmy poprawność naszej konfiguracji poprzez operację `apply`:
 ```
-local_file.aplikacja_wdrozenia: Refreshing state... [id=483419cf2f455e80cb6496f48b440aed928320ae]
+local_file.uzywanie_lokalnych_zmiennych: Refreshing state... [id=483419cf2f455e80cb6496f48b440aed928320ae]
 
 No changes. Your infrastructure matches the configuration.
 
@@ -49,7 +49,7 @@ locals {
 ```
 Następnie wykorzystaj nową zmienną w konfiguracji lokalnego pliku:
 ```
-resource "local_file" "aplikacja_wdrozenia" {
+resource "local_file" "uzywanie_lokalnych_zmiennych" {
   filename        = local.filename
   file_permission = local.file_permissions
   content         = "Ćwiczenie 2.1 - Używanie lokalnych zmiennych!"
@@ -64,8 +64,8 @@ Terraform used the selected providers to generate the following execution plan. 
 
 Terraform will perform the following actions:
 
-  # local_file.aplikacja_wdrozenia must be replaced
--/+ resource "local_file" "aplikacja_wdrozenia" {
+  # local_file.uzywanie_lokalnych_zmiennych must be replaced
+-/+ resource "local_file" "uzywanie_lokalnych_zmiennych" {
       ~ content_base64sha256 = "sB/73edDrJk+auAkNPG5lLsvNKIB511tNWrvZK9fZ0U=" -> (known after apply)
       ~ content_base64sha512 = "TPctctcO77n2K2GmXJkNLwArUFBXPXKDDzHwFKo0VUmQK+83IsxV448qYjcVAG+oRHIlWMpHZQx6JMvlrL4nAA==" -> (known after apply)
       ~ content_md5          = "3a436e30ac339f330c9f871a95da83c6" -> (known after apply)
@@ -85,10 +85,10 @@ Do you want to perform these actions?
 
   Enter a value: yes
 
-local_file.aplikacja_wdrozenia: Destroying... [id=483419cf2f455e80cb6496f48b440aed928320ae]
-local_file.aplikacja_wdrozenia: Destruction complete after 0s
-local_file.aplikacja_wdrozenia: Creating...
-local_file.aplikacja_wdrozenia: Creation complete after 0s [id=483419cf2f455e80cb6496f48b440aed928320ae]
+local_file.uzywanie_lokalnych_zmiennych: Destroying... [id=483419cf2f455e80cb6496f48b440aed928320ae]
+local_file.uzywanie_lokalnych_zmiennych: Destruction complete after 0s
+local_file.uzywanie_lokalnych_zmiennych: Creating...
+local_file.uzywanie_lokalnych_zmiennych: Creation complete after 0s [id=483419cf2f455e80cb6496f48b440aed928320ae]
 
 Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
 ```
