@@ -134,4 +134,16 @@ terraform apply -var=filename=a.txt
 │ This was checked by the validation rule at variables.tf:6,3-13.
 ╵
 ```
-Reguły walidacji mogą być definiowane w dowolnej ilości a także wykorzystywać wbudowane funkcje Terraform.
+Reguły walidacji mogą być definiowane w dowolnej ilości a także wykorzystywać wbudowane funkcje Terraform. Jeśli dotychczasowe reguły walidacji były dla Ciebie zbyt proste, spróbujmy wykonać jeszcze jedną walidację - tym razem z użyciem wyrażenia regularnego. 
+```
+validation {
+  condition     = can(regex("^[a-z]{4}-[a-z]{4}", var.filename))
+  error_message = "Nazwa pliku musi mieć format: xxxx-xxxx!"
+}
+```
+Na koniec spróbuj we własnym zakresie zaimplementować regułę, która za pomocą wyrażenia regularnego sprawdzi, czy nazwa pliku spełnia poniższe wymagania:
+* dozwolone małe oraz wielkie litery
+* dozwolone cyfry 1 - 9
+* dozwolone znaki: `-` oraz `_`
+
+Do napisania i sprawdzenia wyrażenia możesz użyć np. https://regex101.com/.

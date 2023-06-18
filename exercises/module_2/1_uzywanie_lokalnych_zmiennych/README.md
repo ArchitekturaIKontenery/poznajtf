@@ -96,4 +96,8 @@ Tym razem Terraform odtworzył nasz lokalny plik - wynika to z wprowadzonych zmi
 ```
 ~ file_permission      = "0777" -> "0644" # forces replacement
 ```
-Ponieważ jednak zawartość pliku zdefiniowana jest w ramach tej samej konfiguracji, tego typu operacja nie jest ryzykowna.
+Ponieważ jednak zawartość pliku zdefiniowana jest w ramach tej samej konfiguracji, tego typu operacja nie jest ryzykowna, tj. zawartość pliku jest odtwarzana bezpośrednio z poziomu kodu Terraform. Jest to jednocześnie przykład dlaczego podejście Infrastructure-as-Code jest tak przydatne. Jeśli nie zdefiniujemy naszej infrastruktury w kodzie, odtworzenie jej od zera może być czasochłonne oraz kłopotliwe. W naszym przypadku jest to kwestia tylko i wyłącznie wykonania ponownie operacji `apply`.
+
+> Zwróć uwagę na to, że nie zawsze Infrastructure-as-Code zabezpiecza nas przed utraceniem stanu infrastruktury. Jest to szczególnie widoczne w przypadku baz danych, gdzie konfiguracja infrastruktury może być zapisana w Terraform, jednak dane już nie. W sytuacji kiedy Terraform by odtworzył taki zasób, jego konfiguracja zostanie nienaruszona - nie możemy niestety tego powiedzieć o jego stanie.
+
+Jeśli udało Ci się wykonać to ćwiczenie bez przeszkód, przejdź do kolejnego, gdzie skupimy się na podstawowej walidacji zmiennych w Terraform.

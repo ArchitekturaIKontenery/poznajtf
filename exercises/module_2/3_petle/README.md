@@ -178,7 +178,17 @@ resource "local_file" "additional_file" {
   content  = "Ćwiczenie 2.3 - Pętle! Plik ${each.value}"
 }
 ```
-Oczywiście wartość (`value`) nie musi być typem prostym. Jeśli chcesz, może to być typ złożony (obiekt, mapa, lista), do którego odniesiesz się w standardowy sposób `pole.wartość`. W kolejnych ćwiczeniach będziemy budować znacznie bardziej zaawansowane konfiguracje.
+Oczywiście wartość (`value`) nie musi być typem prostym. Jeśli chcesz, może to być typ złożony (obiekt, mapa, lista), do którego odniesiesz się w standardowy sposób `pole.wartość`. W kolejnych ćwiczeniach będziemy budować znacznie bardziej zaawansowane konfiguracje. Aby jednak utrwalić zdobytą wiedzę, spróbuj zaimplementować kod, w którym lokalna zmienna `additional_files` będzie zawierać jako wartości nie łańcuchy znaków, tylko obiekt o następującej strukturze:
+```
+additional_files = {
+  "<key>" = {
+    filename(string),
+    content(string),
+    file_permission(string)
+  }
+}
+```
+Następnie wykorzystaj te pola do uzupełnienia konfiguracji zasobu `local_file.additional_file`.
 
 ### Pętla `for`
 Wyrażenie `for`, w przeciwieństwie do `count` oraz `for_each` nie jest typową pętlą w rozumieniu pętli tworzonych w różnych językach programowania. Jest to raczej operator, który pozwala nam na transformowanie jednego typu w drugi z użyciem odpowiednich funkcji dostępnych dla kodu Terraform. Możemy to dość łatwo zobrazować następującym przykładem:

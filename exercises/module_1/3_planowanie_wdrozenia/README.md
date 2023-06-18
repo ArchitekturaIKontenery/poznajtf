@@ -99,12 +99,18 @@ Plan: 2 to add, 0 to change, 0 to destroy.
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
 ```
 
-Ponieważ nigdy wcześniej nie aplikowaliśmy zmian z tej konfiguracji, Terraform posiada pusty plik stanu. Ponieważ plik stanu jest pusty, nasze zasoby z punktu widzenia Terraform powinny być utworzone. Wynik działania tej komendy jest więc właściwy - zaplanowane wdrożenie utworzy dwa zasoby.
+Ponieważ nigdy wcześniej nie aplikowaliśmy zmian z tej konfiguracji, Terraform posiada pusty plik stanu. Jako że plik stanu jest pusty, nasze zasoby z punktu widzenia Terraform powinny być utworzone. Wynik działania tej komendy jest więc właściwy - zaplanowane wdrożenie utworzy dwa zasoby.
 
 Zwróć dodatkowo uwagę na wynik działania komendy `plan` w kontekście niektórych parametrów naszych zasobów, w szczególności `local_file`:
 ```
 filename             = (known after apply)
 ```
 Informacja `(known after apply)` wskazuje na brak możliwości określenia wartości przed aplikacją zmian. Wynika to bardzo często z tego, że niektóre wartości mogą być generowane dopiero w momencie kiedy zasób istnieje. Jeśli poszczególne zasoby zależą od wartości, które są generowane w locie, część konfiguracji może być niejawna do momentu zmaterializowania zmian. Nie należy się tym przejmować, chociaż może to miejscami utrudniać zrozumienie docelowego stanu naszej infrastruktury.
+
+Na sam koniec pozostała nam jeszcze jedna kwestia do omówienia. W momencie kiedy wykonujemy operację `plan` bez parametru `-out`, Terraform zgłosi nam nastepujące ostrzeżenie:
+```
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+```
+Nie przejmuj się tym - materializacja planu za pomocą tego parametru nie jest wymagana do poprawnego aplikowania zmian. Potencjalne scenariusze kiedy ta opcja jest przydatna omówimy w dalszej części kursu.
 
 Aby zobaczyć jak będzie wyglądać nasza infrastruktura skieruj się do kolejnego ćwiczenia pt. `Aplikacja zmian`.
