@@ -1,6 +1,6 @@
 resource "random_string" "aplikacja_wdrozenia" {
   length  = "8"
-  special = false
+  special = true
 }
 
 resource "local_file" "aplikacja_wdrozenia" {
