@@ -158,16 +158,16 @@ resource "local_file" "additional_file" {
 Zwróć uwagę na następującą rzecz - zmienna `local.additional_files` jest zdefiniowana jako kolekcja (lista), natomiast pętla `for_each` na wejściu nie przyjmuje tego typu, gdyż wymagane jest, aby elementy kolekcji zawierały zarówno klucz jak i wartość. Z tego powodu wykorzystujemy funkcję `toset()`, która powoduje, że Terraform wykona następującą transformację:
 ```
 ["plik4.txt", "plik5.txt"] -> {
-    "file4.txt" = "file5.txt",
-    "file5.txt" = "file4.txt"
+    "file4.txt" = "file4.txt",
+    "file5.txt" = "file5.txt"
 }
 ```
 Ten sam efekt osiągnęlibyśmy za pomocą następującego kodu:
 ```
 locals {
   additional_files = {
-    "file4.txt" = "file5.txt",
-    "file5.txt" = "file4.txt"
+    "file4.txt" = "file4.txt",
+    "file5.txt" = "file5.txt"
   }
 }
 
