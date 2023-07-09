@@ -2,3 +2,5 @@
 **/*.tfstate
 **/*.tfstate.backup
 **/*.txt
+exercises/module_5/2_praca_z_plikiem_stanu/local_file.json
+exercises/**/*.backup
