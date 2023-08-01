@@ -184,3 +184,4 @@ Zwróć uwagę na to, że ten test operuje na poziomie lokalnej infrastruktury, 
 ```
 http_helper.HttpGetWithRetry(t, url, nil, <http-status-code>, "<oczekiwana-odpowiedź-http>", 30, 5*time.Second)
 ```
+Pisanie testów w Terratest skupia się głównie na wykorzystaniu dostępnych helperów (https://github.com/gruntwork-io/terratest/tree/master/modules) oraz funkcji Go. Jeśli chcesz "mocniej" wejść w temat, zdecydowanie rekomenduję naukę przynajmniej podstaw Go aby bez przeszkód korzystać z tego, co oferuje na Terratest.
